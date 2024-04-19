@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.greenhouse.Mapper.GreenHouseMapper">
+
+    <insert id="addData">
+        insert into green
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+           <!-- <if test="id!=null">
+                id,
+            </if>-->
+            <if test="humi!=null ">
+                humi,
+            </if>
+            <if test="temp!=null ">
+                temp,
+            </if>
+            <if test="ld!=null ">
+                ld,
+            </if>
+            <if test="status!=null ">
+                status,
+            </if>
+            <if test="deviceId!=null ">
+                deviceId,
+            </if>
+            <if test="time!=null ">
+                time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <!--<if test="id!=null">
+                #{id},
+            </if>-->
+            <if test="humi!=null">
+                #{humi},
+            </if>
+            <if test="temp!=null">
+                #{temp},
+            </if>
+            <if test="ld!=null">
+                #{ld},
+            </if>
+            <if test="status!=null">
+                #{status},
+            </if>
+            <if test="deviceId!=null">
+                #{deviceId},
+            </if>
+            <if test="time!=null">
+                #{time},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateData" parameterType="com.hu.greenhouse.entity.TopData">
+        update topdata
+        <set>
+            <if test="temp1!=null ">
+                temp1=#{temp1},
+            </if>
+            <if test="ldstatus!=null">
+                ldstatus=#{ldstatus},
+            </if>
+          <!--  <if test="humi!=null ">
+                humi=#{humi},
+            </if>-->
+            <if test="ld!=null ">
+                ld=#{ld},
+            </if>
+            <if test="temp2!=null">
+                temp2=#{temp2},
+            </if>
+
+            <if test="motor1!=null">
+                motor1=#{motor1},
+            </if>
+            <if test="motor2!=null">
+                motor2=#{motor2},
+            </if>
+            <if test="swi!=null">
+                swi=#{swi},
+            </if>
+            <if test="deviceId!=null">
+                deviceId=#{deviceId},
+            </if>
+        </set>
+    </update>
+       <!-- <set>
+            <if test="temp1 != null">
+                temp1 = #{temp1},
+            </if>
+            <if test="ldstatus != null">
+                ldstatus = #{ldstatus},
+            </if>
+            <if test="humi != null">
+                humi = #{humi},
+            </if>
+            <if test="ld != null">
+                ld = #{ld},
+            </if>
+            <if test="temp2 != null">
+                temp2 = #{temp2},
+            </if>
+            <if test="motor1 != null">
+                motor1 = #{motor1},
+            </if>
+            <if test="motor2 != null">
+                motor2 = #{motor2}
+            </if>
+        </set>-->
+
+</mapper>
